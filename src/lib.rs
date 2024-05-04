@@ -37,6 +37,23 @@ pub fn get_mnemonic(count:u8) -> Result<String, Box<dyn Error>> {
 }
 
 
+pub fn get_string_from_bytes(bytes_data: &[u8]) -> String {
+    let mut string_data = String::new();
+    for byte in bytes_data {
+        string_data.push(*byte as char);
+    }
+    string_data
+}
+
+pub fn get_bytes_from_string(string_data: String) -> Vec<u8> {
+    let mut bytes_data = Vec::new();
+    for ch in string_data.chars() {
+        bytes_data.push(ch as u8);
+    }
+    bytes_data
+}
+
+
 #[cfg(test)]
 mod tests {
     use super::*;
