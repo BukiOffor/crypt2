@@ -82,4 +82,11 @@ mod tests {
         let mnemonic = get_mnemonic(30);
         assert!(mnemonic.is_err());
     }
+    
+    #[test]
+    fn test_returns_empty_string_with_empty_byte_array() {
+        let bytes_data: &[u8] = &[];
+        let result = get_string_from_bytes(bytes_data);
+        assert_eq!(result, "");
+    }
 }

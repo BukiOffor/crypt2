@@ -1,4 +1,6 @@
-use crypt2::{get_mnemonic,crypto::{encrypt::encrypt, decrypt::decrypt}};
+#![allow(unused_imports)]
+
+use crypt2::{crypto::{decrypt::{decrypt, decrypt_file}, encrypt::{encrypt, encrypt_dir}}, get_mnemonic};
 
 fn main() {
     // lock a file with a password
@@ -8,6 +10,8 @@ fn main() {
     println!("encrypted phrase: {}", enc_string);
     let dec_string = decrypt(&enc_string, "p").unwrap();
     println!("decrypted string: {}", dec_string);
+
+    let _ = encrypt_dir("/Users/mac/test-encryption", "popito").unwrap();
 
 }
 
